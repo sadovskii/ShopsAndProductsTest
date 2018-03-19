@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ShopsAndProductsContainer" CdmEntityContainer="ShopsAndProductsContext">
+    <EntitySetMapping Name="BeginAndEndWork">
+      <EntityTypeMapping TypeName="ShopsAndProducts.BeginAndEndWork">
+        <MappingFragment StoreEntitySet="BeginAndEndWork">
+          <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+          <ScalarProperty Name="Begin" ColumnName="Begin" />
+          <ScalarProperty Name="End" ColumnName="End" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModeOfOperation">
+      <EntityTypeMapping TypeName="ShopsAndProducts.ModeOfOperation">
+        <MappingFragment StoreEntitySet="ModeOfOperation">
+          <ScalarProperty Name="IdMode" ColumnName="IdMode" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ShopsAndProducts.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shops">
+      <EntityTypeMapping TypeName="ShopsAndProducts.Shops">
+        <MappingFragment StoreEntitySet="Shops">
+          <ScalarProperty Name="ShopsId" ColumnName="ShopsId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ModeOfOperation" ColumnName="ModeOfOperation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Times">
+      <EntityTypeMapping TypeName="ShopsAndProducts.Times">
+        <MappingFragment StoreEntitySet="Times">
+          <ScalarProperty Name="IdTime" ColumnName="IdTime" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RelationBetweenShopsAndProducts" TypeName="ShopsAndProducts.RelationBetweenShopsAndProducts" StoreEntitySet="RelationBetweenShopsAndProducts">
+      <EndProperty Name="Shops">
+        <ScalarProperty Name="ShopsId" ColumnName="FKFirstId" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="ProductId" ColumnName="FKSecondId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

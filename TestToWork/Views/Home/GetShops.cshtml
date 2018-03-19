@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TestToWork.Models.ShopAllInfViewModel>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Mode Of Operation</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+            {
+            <tr>
+                <td>@a.Name</td>
+                <td>@a.Address</td>
+                <td>
+                    <p class="aStyle" data-toggle="collapse" data-target=@("#" + a.ShopsId.ToString())>Mode Of Operation▼</p>
+                    <div id=@(a.ShopsId.ToString()) class="collapse">
+                        <ul>
+                            <li>Monday : @a.DaysOfWeek["Monday"][0] - @a.DaysOfWeek["Monday"][1]</li>
+                            <li>Tuesday : @a.DaysOfWeek["Tuesday"][0] - @a.DaysOfWeek["Tuesday"][1]</li>
+                            <li>Wednesday : @a.DaysOfWeek["Wednesday"][0] - @a.DaysOfWeek["Wednesday"][1]</li>
+                            <li>Thursday : @a.DaysOfWeek["Thursday"][0] - @a.DaysOfWeek["Thursday"][1]</li>
+                            <li>Friday : @a.DaysOfWeek["Friday"][0] - @a.DaysOfWeek["Friday"][1]</li>
+                            <li>Saturday : @a.DaysOfWeek["Saturday"][0] - @a.DaysOfWeek["Saturday"][1]</li>
+                            <li>Sunday : @a.DaysOfWeek["Sunday"][0] - @a.DaysOfWeek["Sunday"][1]</li>
+                        </ul>
+                    </div>
+                        
+                </td>
+                <td>
+                    <div style="margin-right:8px;float:left;">
+                        @Ajax.ActionLink("Get Products", "GetProducts", new { id = a.ShopsId }, new AjaxOptions { UpdateTargetId = "results" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

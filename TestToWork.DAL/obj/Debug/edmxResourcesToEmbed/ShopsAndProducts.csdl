@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopsAndProducts" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BeginAndEndWork">
+    <Key>
+      <PropertyRef Name="IdWork" />
+    </Key>
+    <Property Name="IdWork" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Begin" Type="Int32" Nullable="false" />
+    <Property Name="End" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Times" Relationship="Self.FK__BeginAndE__Begin__276EDEB3" FromRole="BeginAndEndWork" ToRole="Times" />
+    <NavigationProperty Name="Times1" Relationship="Self.FK__BeginAndEnd__End__286302EC" FromRole="BeginAndEndWork" ToRole="Times" />
+    <NavigationProperty Name="ModeOfOperation" Relationship="Self.FK__ModeOfOpe__Frida__2F10007B" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation1" Relationship="Self.FK__ModeOfOpe__Monda__2B3F6F97" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation2" Relationship="Self.FK__ModeOfOpe__Satur__300424B4" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation3" Relationship="Self.FK__ModeOfOpe__Sunda__30F848ED" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation4" Relationship="Self.FK__ModeOfOpe__Thurs__2E1BDC42" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation5" Relationship="Self.FK__ModeOfOpe__Tuesd__2C3393D0" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="ModeOfOperation6" Relationship="Self.FK__ModeOfOpe__Wedne__2D27B809" FromRole="BeginAndEndWork" ToRole="ModeOfOperation" />
+  </EntityType>
+  <EntityType Name="ModeOfOperation">
+    <Key>
+      <PropertyRef Name="IdMode" />
+    </Key>
+    <Property Name="IdMode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Monday" Type="Int32" />
+    <Property Name="Tuesday" Type="Int32" />
+    <Property Name="Wednesday" Type="Int32" />
+    <Property Name="Thursday" Type="Int32" />
+    <Property Name="Friday" Type="Int32" />
+    <Property Name="Saturday" Type="Int32" />
+    <Property Name="Sunday" Type="Int32" />
+    <NavigationProperty Name="BeginAndEndWork" Relationship="Self.FK__ModeOfOpe__Frida__2F10007B" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork1" Relationship="Self.FK__ModeOfOpe__Monda__2B3F6F97" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork2" Relationship="Self.FK__ModeOfOpe__Satur__300424B4" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork3" Relationship="Self.FK__ModeOfOpe__Sunda__30F848ED" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork4" Relationship="Self.FK__ModeOfOpe__Thurs__2E1BDC42" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork5" Relationship="Self.FK__ModeOfOpe__Tuesd__2C3393D0" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork6" Relationship="Self.FK__ModeOfOpe__Wedne__2D27B809" FromRole="ModeOfOperation" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="Shops" Relationship="Self.FK__Shops__ModeOfOpe__33D4B598" FromRole="ModeOfOperation" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Shops" Relationship="Self.RelationBetweenShopsAndProducts" FromRole="Products" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="Shops">
+    <Key>
+      <PropertyRef Name="ShopsId" />
+    </Key>
+    <Property Name="ShopsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModeOfOperation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ModeOfOperation1" Relationship="Self.FK__Shops__ModeOfOpe__33D4B598" FromRole="Shops" ToRole="ModeOfOperation" />
+    <NavigationProperty Name="Products" Relationship="Self.RelationBetweenShopsAndProducts" FromRole="Shops" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Times">
+    <Key>
+      <PropertyRef Name="IdTime" />
+    </Key>
+    <Property Name="IdTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="BeginAndEndWork" Relationship="Self.FK__BeginAndE__Begin__276EDEB3" FromRole="Times" ToRole="BeginAndEndWork" />
+    <NavigationProperty Name="BeginAndEndWork1" Relationship="Self.FK__BeginAndEnd__End__286302EC" FromRole="Times" ToRole="BeginAndEndWork" />
+  </EntityType>
+  <Association Name="FK__BeginAndE__Begin__276EDEB3">
+    <End Role="Times" Type="Self.Times" Multiplicity="1" />
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Times">
+        <PropertyRef Name="IdTime" />
+      </Principal>
+      <Dependent Role="BeginAndEndWork">
+        <PropertyRef Name="Begin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BeginAndEnd__End__286302EC">
+    <End Role="Times" Type="Self.Times" Multiplicity="1" />
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Times">
+        <PropertyRef Name="IdTime" />
+      </Principal>
+      <Dependent Role="BeginAndEndWork">
+        <PropertyRef Name="End" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Frida__2F10007B">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Friday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Monda__2B3F6F97">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Monday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Satur__300424B4">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Saturday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Sunda__30F848ED">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Sunday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Thurs__2E1BDC42">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Thursday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Tuesd__2C3393D0">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Tuesday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModeOfOpe__Wedne__2D27B809">
+    <End Role="BeginAndEndWork" Type="Self.BeginAndEndWork" Multiplicity="0..1" />
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BeginAndEndWork">
+        <PropertyRef Name="IdWork" />
+      </Principal>
+      <Dependent Role="ModeOfOperation">
+        <PropertyRef Name="Wednesday" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shops__ModeOfOpe__33D4B598">
+    <End Role="ModeOfOperation" Type="Self.ModeOfOperation" Multiplicity="1" />
+    <End Role="Shops" Type="Self.Shops" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModeOfOperation">
+        <PropertyRef Name="IdMode" />
+      </Principal>
+      <Dependent Role="Shops">
+        <PropertyRef Name="ModeOfOperation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RelationBetweenShopsAndProducts">
+    <End Role="Shops" Type="Self.Shops" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ShopsAndProductsContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BeginAndEndWork" EntityType="Self.BeginAndEndWork" />
+    <EntitySet Name="ModeOfOperation" EntityType="Self.ModeOfOperation" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Shops" EntityType="Self.Shops" />
+    <EntitySet Name="Times" EntityType="Self.Times" />
+    <AssociationSet Name="FK__BeginAndE__Begin__276EDEB3" Association="Self.FK__BeginAndE__Begin__276EDEB3">
+      <End Role="Times" EntitySet="Times" />
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BeginAndEnd__End__286302EC" Association="Self.FK__BeginAndEnd__End__286302EC">
+      <End Role="Times" EntitySet="Times" />
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Frida__2F10007B" Association="Self.FK__ModeOfOpe__Frida__2F10007B">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Monda__2B3F6F97" Association="Self.FK__ModeOfOpe__Monda__2B3F6F97">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Satur__300424B4" Association="Self.FK__ModeOfOpe__Satur__300424B4">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Sunda__30F848ED" Association="Self.FK__ModeOfOpe__Sunda__30F848ED">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Thurs__2E1BDC42" Association="Self.FK__ModeOfOpe__Thurs__2E1BDC42">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Tuesd__2C3393D0" Association="Self.FK__ModeOfOpe__Tuesd__2C3393D0">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModeOfOpe__Wedne__2D27B809" Association="Self.FK__ModeOfOpe__Wedne__2D27B809">
+      <End Role="BeginAndEndWork" EntitySet="BeginAndEndWork" />
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Shops__ModeOfOpe__33D4B598" Association="Self.FK__Shops__ModeOfOpe__33D4B598">
+      <End Role="ModeOfOperation" EntitySet="ModeOfOperation" />
+      <End Role="Shops" EntitySet="Shops" />
+    </AssociationSet>
+    <AssociationSet Name="RelationBetweenShopsAndProducts" Association="Self.RelationBetweenShopsAndProducts">
+      <End Role="Shops" EntitySet="Shops" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

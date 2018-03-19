@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TestToWork.Models.ProductsViewModel>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+            {
+            <tr>
+                <td>@a.Name</td>
+                <td>@a.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

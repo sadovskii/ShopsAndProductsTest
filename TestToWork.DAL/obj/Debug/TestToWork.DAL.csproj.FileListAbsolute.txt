@@ -1,0 +1,13 @@
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\TestToWork.DAL.dll.config
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\TestToWork.DAL.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\TestToWork.DAL.pdb
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\obj\Debug\TestToWork.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\obj\Debug\TestToWork.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\obj\Debug\TestToWork.DAL.dll
+C:\Users\Антон\Documents\Visual Studio 2017\Projects\TestToWork\TestToWork.DAL\obj\Debug\TestToWork.DAL.pdb
